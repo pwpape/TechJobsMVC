@@ -16,6 +16,8 @@ namespace TechJobs.Controllers
         [HttpPost]
         public IActionResult Results(string searchType, string searchTerm)
         {
+            ViewBag.searchTerm = searchTerm;
+            
             if (searchType == "all")
             {
                 ViewBag.jobs = JobData.FindAll();
