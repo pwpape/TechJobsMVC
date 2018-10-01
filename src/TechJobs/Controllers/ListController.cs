@@ -20,13 +20,13 @@ namespace TechJobs.Controllers
             columnChoices.Add("position type", "Position Type");
             columnChoices.Add("all", "All");
         }
-
+        //displays the different types of lists that the user can view
         public IActionResult Index()
         {
             ViewBag.columns = columnChoices;
             return View();
         }
-
+        //displays actual data obtained from JobData
         public IActionResult Values(string column)
         {
             if (column.Equals("all"))
@@ -45,7 +45,7 @@ namespace TechJobs.Controllers
                 return View();
             }
         }
-
+        //displays actual data obtained from JobData
         public IActionResult Jobs(string column, string value)
         {
             List<Dictionary<String, String>> jobs = JobData.FindByColumnAndValue(column, value);

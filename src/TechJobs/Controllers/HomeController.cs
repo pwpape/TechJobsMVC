@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace TechJobs.Controllers
 {
+    //Action method (Index) displays the home page for the app.  View uses the Views/Index.cshtml template.
     public class HomeController : Controller
     {
         public IActionResult Index()
