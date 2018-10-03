@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Text;
@@ -126,16 +127,19 @@ namespace TechJobs.Models
                 }
             }
 
+
             string[] headers = rows[0];
+            
             rows.Remove(headers);
 
             // Parse each row array into a more friendly Dictionary
             foreach (string[] row in rows)
             {
                 Dictionary<string, string> rowDict = new Dictionary<string, string>();
-
+                
                 for (int i = 0; i < headers.Length; i++)
                 {
+                    
                     rowDict.Add(headers[i], row[i]);
                 }
                 AllJobs.Add(rowDict);

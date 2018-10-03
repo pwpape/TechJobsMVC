@@ -1,0 +1,24 @@
+<h3>@ViewBag.jobs.Count Result(s)</h3>
+@foreach (Dictionary<string, string> job in ViewBag.jobs)
+        {
+            <table class="job-listing">
+            @foreach (KeyValuePair<string, string> item in job)
+                {
+                    <tr>
+                        <td>@item.Key.Substring(0,1).ToUpper()@item.Key.Substring(1, item.Key.Length-1)</td>
+                        
+                        <td>
+                        @if (item.Key != "name")
+                        {
+                            <a asp-controller="List" asp-action="Jobs" asp-route-column="@item.Key" asp-route-value="@item.Value">@item.Value</a>
+                        }
+                        else
+                        {
+                            @item.Value
+                        }
+                        </td>
+                    </tr>
+                }
+            </table>
+            <br>
+        }
